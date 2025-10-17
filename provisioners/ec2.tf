@@ -17,6 +17,12 @@ provisioner "local-exec"{
   when = destroy
 }
 
+connection {
+  type    = "ssh"
+  user    = "ec2-user"
+  password= 
+}
+
 }
 
 resource "aws_security_group" "allow_all" {
