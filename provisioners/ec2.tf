@@ -6,7 +6,6 @@ resource "aws_instance" "terraform" {
         Name = "terraform"
         Terraform = "true"
     }
-}
 
 provisioner "local-exec"{
   command = "echo ${self.private_ip} > inventory.ini"
@@ -16,6 +15,8 @@ provisioner "local-exec"{
 provisioner "local-exec"{
   command = "echo instance is destroyed"
   when = destroy
+}
+
 }
 
 resource "aws_security_group" "allow_all" {
